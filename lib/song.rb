@@ -30,12 +30,10 @@ class Song
   def self.genre_count #returns a hash in which keys are names of each genre and values are numbers of songs per genre
 #iterate over genres array
     @@genre_count = {}
-    @@genres.each do |genre|
-    if @@genre_count[genre]
-      @@genre_count += 1
-    else
-      @@genre_count[genre] = 1
-    end
+    @@genres.group_by(&:itself).each do |k,v|
+binding.pry
+    @@genre_count[k] = v.count
+  end
     return @@genre_count
  #binding.pry
   end
@@ -46,5 +44,4 @@ class Song
     @@artists.group_by(&:itself).each {|k,v| @@artist_count[k] = v.count}
     return @@artist_count
   end
-end
 end
