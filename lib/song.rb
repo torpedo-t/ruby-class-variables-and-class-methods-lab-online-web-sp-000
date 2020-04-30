@@ -31,11 +31,11 @@ class Song
 #iterate over genres array
     @@genre_count = {}
     @@genres.each do |genre|
-    
-    @@genres.group_by(&:itself).each do |k,v|
-binding.pry
-    @@genre_count[k] = v.count
-  end
+    if @@genre_count[genre]
+      @@genre_count += 1
+    else 
+      @@genre_count[genre] = 1
+    end
     return @@genre_count
  #binding.pry
   end
