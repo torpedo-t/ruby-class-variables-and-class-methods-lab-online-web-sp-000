@@ -33,7 +33,7 @@ class Song
     @@genres.each do |genre|
     if @@genre_count[genre]
       @@genre_count += 1
-    else 
+    else
       @@genre_count[genre] = 1
     end
     return @@genre_count
@@ -46,4 +46,3 @@ class Song
     @@artists.group_by(&:itself).each {|k,v| @@artist_count[k] = v.count}
     return @@artist_count
   end
-end
