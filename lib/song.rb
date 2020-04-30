@@ -46,3 +46,5 @@ class Song
     @@artists.group_by(&:itself).each {|k,v| @@artist_count[k] = v.count}
     return @@artist_count
   end
+end
+end
